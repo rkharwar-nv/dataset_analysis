@@ -1,0 +1,19 @@
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+.env
+.idea/
+.vscode/
+
+# Local scratch data: never commit raw or full datasets
+/data/
+/scratch/
+*.parquet
+*.feather
+
+# Restricted-license raw downloads (keep them out of the repo)
+samples/_restricted/

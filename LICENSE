@@ -1,0 +1,20 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Ruchika Kharwar
+
+This work — including documentation, scorecards, regulatory checklist, fetch
+scripts, and notebooks in this repository — is licensed under CC BY 4.0.
+You are free to share and adapt the material for any purpose, even commercially,
+provided you give appropriate credit and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+NOTE ON DATASET LICENSES
+------------------------
+This repository describes and links to third-party datasets. The data itself
+is NOT covered by this license. Each dataset retains its original license,
+which is reproduced and linked from its corresponding page under datasets/.
+
+Samples committed to samples/ are only from datasets with permissive licenses
+(UCI Online Retail CC BY 4.0; US Census public domain; Kaggle CC0). All other
+datasets are exploration-only and must be fetched by the user — see scripts/.
