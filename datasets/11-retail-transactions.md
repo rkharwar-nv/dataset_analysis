@@ -39,15 +39,15 @@ Discount_Applied=True  Customer_Category="Adult"
 Season="Spring"  Promotion="Discount on Selected Items"
 ```
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 1. **Prototype dashboards** — build Tableau / Looker / Streamlit demos with zero PII exposure.
-2. **Interview & training problems** — junior analysts get a clean dataset to practice SQL/Python on.
-3. **Stand-in data for product POCs** — wire your new BI tool to this dataset to demo to stakeholders while real data procurement happens.
+2. **Teaching and practice** — a clean dataset for SQL/Python exercises.
+3. **Stand-in data** — placeholder data for testing BI tools and pipelines before real data is available.
 4. **Market-basket exercises** — the `Product` field is list-shaped, designed for Apriori / FP-Growth practice.
 5. **Demo segmentation models** — `Customer_Category` provides ground-truth labels to demonstrate accuracy.
 
 ## Gotchas
 - **Synthetic** means: no real correlations, no real seasonality, no real customer journeys. Models that "work" on this dataset don't necessarily generalize.
-- Insights derived from this data are **not** real consumer behavior — never present them as such in business meetings.
+- Insights derived from this data are **not** real consumer behavior — they should not be reported as such.
 - The `Product` column is sometimes a Python list string `"['a','b','c']"` rather than properly-formatted JSON. Parse defensively.
 - Date range / promotional logic is internally inconsistent (the generator doesn't model promo response).

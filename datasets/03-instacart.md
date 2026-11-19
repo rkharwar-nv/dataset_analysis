@@ -34,14 +34,14 @@ product_id=12427 add_to_cart_order=3   reordered=0   → "Original Beef Jerky"
 product_id=26088 add_to_cart_order=4   reordered=0   → "Aged White Cheddar Popcorn"
 ```
 
-## How a Retail PM uses this *(General knowledge)*
-1. **Reorder prediction** — the original Kaggle competition. Predict which prior products a user will reorder in their next basket. Powers "Buy Again" carousels.
+## Common analyses *(General knowledge)*
+1. **Reorder prediction** — the original Kaggle competition. Predict which prior products a user will reorder in their next basket. The basis for "buy again" recommendations.
 2. **Market-basket affinity** — Apriori / FP-Growth on order_products. Output: "bananas → strawberries" rules with lift/support/confidence.
 3. **Day-of-week & hour-of-day demand** — order_dow + order_hour_of_day → shopper-supply forecasting. Useful for dispatch planning.
 4. **Aisle / department adjacency** — if "frozen pizza" and "ice cream" co-occur in baskets, that's a freezer-section adjacency case.
-5. **Repurchase cadence per category** — `days_since_prior_order` aggregated by product → expected refill interval. Sets the cadence for "time to reorder" push notifications.
-6. **New vs reorder mix** — what fraction of a typical basket is `reordered=1`? Higher = sticky user. Inverse measures discovery surface effectiveness.
-7. **Cold-start product seeding** — products with low reorder rate but high `add_to_cart_order` position (top of cart) are usually "considered but abandoned" — possible PDP improvement candidates.
+5. **Repurchase cadence per category** — `days_since_prior_order` aggregated by product → expected refill interval. 
+6. **New vs reorder mix** — what fraction of a typical basket is `reordered=1`? Higher = sticky user. 
+7. **Cold-start product seeding** — products with low reorder rate but high `add_to_cart_order` position (top of cart) are usually "considered but abandoned" .
 
 ## Gotchas
 - The dataset only contains order **composition**, no prices and no actual delivery info. Revenue / margin analysis is not possible without joining external pricing.

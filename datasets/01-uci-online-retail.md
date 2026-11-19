@@ -39,12 +39,12 @@ InvoiceNo  StockCode  Description                          Quantity  InvoiceDate
 536365     84029E     RED WOOLLY HOTTIE WHITE HEART.       6         2010-12-01 08:26:00   3.39       17850.0     United Kingdom
 ```
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 1. **Customer segmentation (RFM)** — Recency, Frequency, Monetary value model. Then map to loyalty tiers, retention campaigns.
 2. **Customer Lifetime Value (CLV)** — fit BG/NBD + Gamma-Gamma models. Classic teaching dataset for probabilistic CLV.
-3. **Returns / cancellations analysis** — invoices starting with `C` and negative `Quantity`. Size your shrink rate, find products with abnormally high return rates.
+3. **Returns / cancellations analysis** — invoices starting with `C` and negative `Quantity`. Used to estimate return rates and find products with abnormally high return rates.
 4. **Cohort retention curves** — group by acquisition month, track repurchase rate over 12 months.
-5. **Geographic expansion** — UK is 91% of rows. Sizing the "long tail" of international demand (Germany, France, Ireland) is a real PM exercise.
+5. **Geographic expansion** — UK is 91% of rows. The international long tail (Germany, France, Ireland) supports cross-country demand comparisons.
 6. **Product affinity** — co-purchased SKUs within an invoice → starter for "frequently bought together" rules.
 7. **Wholesale vs retail signal** — Quantity > 10 or InvoiceNo total > £200 are common heuristics to find wholesale baskets.
 

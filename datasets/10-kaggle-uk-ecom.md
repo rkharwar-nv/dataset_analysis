@@ -29,11 +29,11 @@ This is functionally the same file as [UCI Online Retail](01-uci-online-retail.m
 ## Representative rows
 Same as UCI — see [`samples/uci-online-retail-sample.csv`](../samples/uci-online-retail-sample.csv) for 500 real rows.
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 Same use cases as UCI (RFM, CLV, returns, cohort, geo expansion, affinity, wholesale detection).
 
 **Additional use case unique to the CC0 version**:
-- **Embed in product demos / public dashboards** — license-clean for internal tools, customer demos, sales-engineering examples. No "do not redistribute" footnotes required.
+- **Redistribution** — CC0 allows the data to be embedded in public dashboards, demos and teaching material without restrictions.
 
 ## Gotchas
 - Some Kaggle uploads of this file have data-quality fixes baked in (price 0 rows removed, NULL CustomerID dropped). Read the version's README before claiming "1M rows."

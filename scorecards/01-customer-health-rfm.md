@@ -1,6 +1,6 @@
 # Scorecard 1 — Customer Health (RFM + CLV)
 
-> Measures whether your customer base is growing in value over time.
+> Metrics for whether a customer base is growing in value over time.
 
 ## Source datasets
 - [UCI Online Retail](../datasets/01-uci-online-retail.md) — best starting point
@@ -29,7 +29,7 @@
 | **At-risk** | 90–180d | Was Loyal+ | Was top 50% |
 | **Lost** | >180d | — | — |
 
-## What to do with each tier
+## Typical actions by tier
 
 - **VIPs** → exclusive perks, early access, manual retention if score drops.
 - **Loyal** → cross-sell adjacent categories, loyalty-tier upgrades.
@@ -59,7 +59,7 @@ SELECT
 FROM per_customer;
 ```
 
-## Quarterly review questions for the PM
+## Questions these metrics answer
 
 1. Is **% active customers** trending up or down?
 2. Is the **VIP tier** growing or shrinking?

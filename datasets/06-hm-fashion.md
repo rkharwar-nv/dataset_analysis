@@ -42,7 +42,7 @@ garment_group_name="Jersey Basic"
 detail_desc="Microfibre vest top with narrow shoulder straps."
 ```
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 1. **Multimodal recommenders** — combine images, text descriptions, and purchase behavior. The standard "real" benchmark beyond Movielens.
 2. **Cold-start strategies** — new article_id with no purchases? Use image + detail_desc embedding for similarity-based candidate generation.
 3. **Style affinity & seasonality** — track weekly purchase volume by section_name × week → identify trend onset (e.g. denim spikes in week 36).

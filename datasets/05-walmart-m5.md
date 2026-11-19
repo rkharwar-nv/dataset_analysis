@@ -34,13 +34,13 @@ sell_prices.csv:
 store_id=CA_1  item_id=FOODS_3_090  wm_yr_wk=11502  sell_price=2.98
 ```
 
-## How a Retail PM uses this *(General knowledge)*
-1. **Hierarchical demand forecasting benchmark** — the de-facto industry benchmark. If your forecasting team can't beat the M5 leaderboard's top-10 with your own model on this data, you have a model problem, not a data problem.
+## Common analyses *(General knowledge)*
+1. **Hierarchical demand forecasting benchmark** — the de-facto public benchmark; the M5 leaderboard provides strong reference scores for new methods.
 2. **Promo lift / price elasticity** — `sell_prices` weekly changes vs daily sales = clean elasticity training set per SKU.
 3. **Event impact quantification** — SNAP days (food-stamp disbursement) and event_name_1 (Super Bowl, Easter, Thanksgiving) drive measurable lift. Separate baseline from event lift.
 4. **Intermittent demand** — many SKUs have 0 sales on most days. Standard benchmark for Croston, TSB, ADIDA, GluonTS DeepAR.
-5. **Hierarchical reconciliation** — top-down vs bottom-up vs MinT reconciliation. PMs care because it determines whether category execs and store managers see consistent numbers.
-6. **State-level vs national rollouts** — CA differs notably from TX and WI for many SKUs. Decision-quality benchmark for "should we roll out this assortment nationwide?"
+5. **Hierarchical reconciliation** — top-down vs bottom-up vs MinT reconciliation. Determines whether forecasts are coherent across store, state, category and total levels.
+6. **State-level vs national rollouts** — CA differs notably from TX and WI for many SKUs. Useful for studying regional heterogeneity in demand.
 
 ## Gotchas
 - Sales are **unit sales**, not revenue. Multiply by `sell_price` (joined on wm_yr_wk) for revenue.

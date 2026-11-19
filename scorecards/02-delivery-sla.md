@@ -1,11 +1,11 @@
 # Scorecard 2 — Delivery SLA & Logistics Quality
 
-> Measures whether you deliver what you promised when you promised.
+> Metrics for whether deliveries arrive within the promised window.
 
 ## Source datasets
 - [Olist Brazilian](../datasets/02-olist-brazilian.md) — best example with estimated vs actual delivery + reviews
 - [GA4 Sample](../datasets/08-ga4-sample.md) — for order-tracking page engagement
-- Internal WMS/TMS — your own fulfillment data
+- Internal WMS/TMS — first-party fulfillment data
 
 ## Metrics
 
@@ -22,7 +22,7 @@
 
 ## Tiered SLA targets
 
-Real PMs negotiate SLAs by **shipping option**:
+SLAs are typically set per **shipping option**:
 
 | Shipping option | Promise window | Target on-time |
 |---|---|---|
@@ -48,10 +48,10 @@ LEFT JOIN olist_order_reviews r USING (order_id)
 WHERE order_status IN ('delivered','canceled','unavailable');
 ```
 
-## Quarterly review questions
+## Questions these metrics answer
 
 1. Where are **late deliveries** concentrated — region? Seller? Carrier?
-2. Is **review score on late deliveries** dragging your overall NPS?
+2. Is **review score on late deliveries** dragging overall NPS?
 3. Are we **over-promising** in any zone (promise window too tight) or **under-promising** (cushioning too much, losing conversions)?
 4. Which **carrier** has the worst variance? Time to renegotiate?
 5. Do **damaged-return** flags cluster on a specific warehouse?
@@ -59,5 +59,5 @@ WHERE order_status IN ('delivered','canceled','unavailable');
 ## Pitfalls
 - Comparing **calendar-day** to **business-day** SLAs (always normalize).
 - Forgetting **carrier handoff time** when attributing late deliveries — sometimes it's the warehouse, not the carrier.
-- Using **median** when you should use **p95** — long-tail late deliveries don't move the median much but kill NPS.
+- Using **median** instead of **p95** — long-tail late deliveries don't move the median much but kill NPS.
 - Ignoring **return delivery** SLA — customers care about how fast their refund-eligible item moves back too.

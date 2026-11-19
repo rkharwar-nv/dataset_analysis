@@ -2,7 +2,7 @@
 
 - **Link**: https://www.census.gov/retail/
 - **License**: US Public Domain — free reuse.
-- **Sample in this repo**: [`samples/census-marts-apr2026.xlsx`](../samples/census-marts-apr2026.xlsx) — full April 2026 advance release.
+- **Sample in this repo**: [`samples/census-marts-apr2026.xlsx`](../samples/census-marts-apr2026.xlsx) — single-month snapshot of the April 2026 advance release (not the full MRTS history).
 
 ## Data products *(verbatim from census.gov/retail)*
 | Product | Cadence | Covers |
@@ -30,7 +30,7 @@ Total excl. gasoline stations             695,573
 Total excl. motor vehicle & gasoline      …
 ```
 
-## NAICS codes you'll care about as a Retail PM
+## Retail NAICS codes
 | NAICS | Kind of business |
 |---|---|
 | 441 | Motor vehicle & parts dealers |
@@ -46,16 +46,16 @@ Total excl. motor vehicle & gasoline      …
 | 454 | Nonstore retailers (e-commerce) |
 | 722 | Food services & drinking places |
 
-## How a Retail PM uses this *(General knowledge)*
-1. **Macro benchmark for category growth** — your business's YoY in NAICS 4541 (electronic shopping) vs the industry. If industry is +6% and you're +2%, you're losing share.
-2. **Channel-mix narrative** — quarterly e-commerce share trend. Powers exec slides like "e-commerce is now X% of US retail."
-3. **State-level demand sizing** — MSRS gives state-level retail sales for new-market expansion business cases.
+## Common analyses *(General knowledge)*
+1. **Macro benchmark for category growth** — industry YoY growth by NAICS code (e.g. 4541, electronic shopping) serves as a reference for any firm-level series.
+2. **Channel-mix narrative** — quarterly e-commerce share trend. Tracks e-commerce as a share of total US retail.
+3. **State-level demand sizing** — MSRS gives state-level retail sales for regional market sizing.
 4. **Macro shock detection** — sudden inflection in a NAICS series often precedes private-data trend shifts by 30–60 days.
-5. **Forecast anchor** — if your bottom-up SKU forecast doesn't reconcile with Census category growth, one of them is wrong.
-6. **Credible exec data** — public, citable, government-issued. Drops cleanly into board decks with no licensing concerns.
+5. **Forecast anchor** — category-level growth provides a top-down check for bottom-up SKU forecasts.
+6. **Citable public data** — government-issued and public domain, with no licensing restrictions.
 
 ## Gotchas
-- MARTS is **advance** = subject to revision; the MRTS final number lands a month later. Don't anchor major decisions on MARTS alone.
-- Seasonally-adjusted vs not-adjusted: use SA for trend analysis, NSA for "actual dollars I should compare to my own NSA reports."
+- MARTS is **advance** = subject to revision; the MRTS final number lands a month later. Advance estimates are revised.
+- Seasonally-adjusted vs not-adjusted: use SA for trend analysis, NSA for comparisons against other unadjusted series.
 - E-commerce definition is NAICS 4541 + electronic portions of other NAICS, NOT just `e-commerce_only_stores`. The methodology note matters.
 - April 2026 release shown here is the **advance**; the `(p)` and `(r)` flags indicate preliminary/revised statuses.

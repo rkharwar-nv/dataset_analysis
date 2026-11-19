@@ -37,14 +37,14 @@ payment_type: credit_card  installments: 3  payment_value: R$ 113.09
 review_score: 5  review_comment: "Produto chegou antes do prazo!"
 ```
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 1. **Delivery SLA & NPS link** — join `orders` × `order_reviews` on `order_id`; correlate delivery-vs-estimate gap with review_score. This is the canonical "logistics impact on satisfaction" study.
 2. **Seller scorecards** — aggregate review scores, cancellation rate, and on-time delivery per seller_id. Identify the long-tail of underperforming sellers driving complaints.
 3. **Marketplace mix & basket size** — orders with multiple sellers vs single-seller; freight cost as % of order value.
 4. **Geographic demand maps** — zip → lat/lng table lets you produce demand heat maps by metro area.
 5. **Payment-method retention** — boleto users (Brazilian bank slip) vs credit-card users — different repurchase patterns.
 6. **NLP on Portuguese reviews** — fine-tune a multilingual sentiment model; extract aspect-based complaints ("amassado", "atrasou").
-7. **Category translation** — when presenting English-only execs with Brazilian data, the translation table is essential.
+7. **Category translation** — the `product_category_name_translation` table maps Portuguese category names to English.
 
 ## Gotchas
 - `customer_id` is **per-order**; the stable identifier is `customer_unique_id`. Joining wrong = wrong CLV.

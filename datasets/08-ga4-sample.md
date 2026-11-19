@@ -46,7 +46,7 @@ items=[{item_id:"GGOEAFKQ020699",
         price:55.0, quantity:1, item_brand:"YouTube"}]
 ```
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 1. **Funnel diagnostics** — `view_item → add_to_cart → begin_checkout → purchase`. Compute per-step drop-off; segment by device, traffic source, country.
 2. **Channel attribution** — first-touch vs last-touch (`traffic_source` vs `session_traffic_source_last_click`). Different spend allocations follow.
 3. **Search-term → revenue** — extract `q=` or search_term from event_params and join to subsequent purchases. Powers "what searches actually drive sales" reports.
@@ -59,4 +59,4 @@ items=[{item_id:"GGOEAFKQ020699",
 - Data is **obfuscated** — some values are placeholders, internal consistency is limited. Good for learning queries; not for absolute business numbers.
 - `user_id` is mostly null; rely on `user_pseudo_id` for behavior analysis (device-bound).
 - Each event is a row, but `items[]` and `event_params[]` are repeated structs — you must `UNNEST` to flatten.
-- The dataset stops in Jan 2021. For your own GA4 export, schema is the same; revenue can be reconstructed from `ecommerce.purchase_revenue` × USD.
+- The dataset stops in Jan 2021. Live GA4 exports use the same schema; revenue can be reconstructed from `ecommerce.purchase_revenue` × USD.

@@ -1,6 +1,6 @@
 # Scorecard 4 — Forecasting Accuracy
 
-> Measures whether your demand forecasts are good enough to plan inventory, staffing, and promotions.
+> Metrics for whether demand forecasts are accurate enough to plan inventory, staffing, and promotions.
 
 ## Source datasets
 - [Walmart M5](../datasets/05-walmart-m5.md) — primary benchmark
@@ -54,11 +54,11 @@ for level in hierarchy:
     results[level] = wape(agg_actual, agg_pred)
 ```
 
-## Quarterly review questions
+## Questions these metrics answer
 
 1. Is **WAPE trending down** quarter over quarter? If flat, model investment isn't paying off.
 2. Where is **bias non-zero** — chronic over-forecasting kills margin via overstock; under-forecasting kills sales via OOS.
-3. Are **promo-week forecasts** as accurate as non-promo? If not, your model isn't learning promotions.
+3. Are **promo-week forecasts** as accurate as non-promo? If not, the model isn't capturing promotion effects.
 4. What's our **FVA** vs naive seasonal baseline? If <5%, the team is over-engineering.
 5. Are **new-SKU forecasts** within tolerance, or are we over-buying every launch?
 
@@ -67,5 +67,5 @@ for level in hierarchy:
 - Reporting **point accuracy** only — production needs **prediction intervals** for safety stock.
 - Backtesting on **non-time-respecting** splits (random shuffle) — overstates accuracy.
 - Forecasting on **historical sales** instead of **historical demand** — sales = min(demand, inventory), so OOS days are censored data.
-- Ignoring **hierarchical reconciliation** — top-down often gives different numbers than bottom-up, which confuses stakeholders.
+- Ignoring **hierarchical reconciliation** — top-down often gives different numbers than bottom-up, which produces inconsistent numbers across levels.
 - Confusing **forecast bias** (which compounds week-over-week) with **forecast noise** (which doesn't).

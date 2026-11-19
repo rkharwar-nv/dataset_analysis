@@ -48,9 +48,9 @@ Two parallel files per category, gzipped JSONL:
 }
 ```
 
-## How a Retail PM uses this *(General knowledge)*
-1. **Voice-of-customer themes per category** — topic modeling (BERTopic / LDA) on review text → roadmap signal ("what do shoppers complain about for kitchen knives?").
-2. **Aspect-based sentiment** — extract aspect–opinion pairs ("battery life: short", "fit: runs small") to feed PDP improvements and supplier-quality conversations.
+## Common analyses *(General knowledge)*
+1. **Voice-of-customer themes per category** — topic modeling (BERTopic / LDA) on review text (e.g. recurring complaints about kitchen knives).
+2. **Aspect-based sentiment** — extract aspect–opinion pairs ("battery life: short", "fit: runs small") for product-attribute and quality analysis.
 3. **Competitor benchmarking** — pull reviews for competing SKUs (same parent_asin grouping or same category) and compare complaint clusters quantitatively.
 4. **Review-quality / fake-review detection** — `verified_purchase=False` reviews with extreme polarity are the easy training set; production models add temporal burst and user-graph signals.
 5. **Image-text alignment** — review images + text → multimodal model fine-tuning for visual search.
@@ -58,7 +58,7 @@ Two parallel files per category, gzipped JSONL:
 7. **Star-rating drift** — `average_rating` is point-in-time; reconstruct true rating curves from review timestamps to detect quality regressions.
 
 ## Gotchas
-- **No PII**, but `user_id` is consistent across reviews — re-identification risk if cross-joined with other Amazon data. Don't ship to third parties.
+- **No PII**, but `user_id` is consistent across reviews — re-identification risk if cross-joined with other Amazon data. Avoid sharing joined data with third parties.
 - Item metadata is **scraped at a single point in time**; prices and titles may be stale relative to the reviews.
 - Books and Electronics categories dominate. Be careful generalizing tone/length stats across categories.
 - The 2023 version supersedes the older 2018 release; columns are similar but not identical.

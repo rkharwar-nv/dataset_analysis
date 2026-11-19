@@ -1,6 +1,6 @@
 # Scorecard 3 — Promotional Effectiveness
 
-> Measures whether your discounts and campaigns generate **incremental** profit, not just sales-shift.
+> Metrics for whether discounts and campaigns generate **incremental** profit, not just sales-shift.
 
 ## Source datasets
 - [Dunnhumby Complete Journey](../datasets/07-dunnhumby.md) — gold standard, has `causal_data` for display/mailer
@@ -26,9 +26,9 @@ Three common baseline methods, in order of rigor:
 
 1. **Same period prior year** — simple, ignores trend.
 2. **Synthetic control** — weighted average of non-promoted comparable SKUs (preferred).
-3. **Causal inference** (CausalImpact, DiD, uplift modeling) — best when you have promotion-eligibility randomization.
+3. **Causal inference** (CausalImpact, DiD, uplift modeling) — best when promotion eligibility is randomized.
 
-Dunnhumby's `causal_data` table is built for method #3: you have explicit display/mailer flags by store/week.
+Dunnhumby's `causal_data` table is built for method #3: it has explicit display/mailer flags by store/week.
 
 ## SQL skeleton (using Dunnhumby)
 
@@ -58,11 +58,11 @@ GROUP BY PRODUCT_ID
 HAVING COUNT(*) >= 20;
 ```
 
-## Quarterly review questions
+## Questions these metrics answer
 
 1. Which **campaigns ROI-positive** after incrementality adjustment?
 2. What's our **forward-buy rate** on top-promoted SKUs — are we stockpiling-trained our customers?
-3. Is **promo penetration** drifting up YoY? (If yes, you're addicted to discounting.)
+3. Is **promo penetration** drifting up YoY? (Rising penetration indicates growing dependence on discounts.)
 4. Which **categories have the highest cannibalization** — those are candidates for promo reduction.
 5. Are we measuring **margin-after-promo** correctly, or just gross revenue?
 

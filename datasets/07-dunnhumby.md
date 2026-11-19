@@ -44,7 +44,7 @@ PRODUCT_ID=1027524  DEPARTMENT=KIOSK-GAS  COMMODITY_DESC=DIAPERS
 SUB_COMMODITY_DESC=DIAPER  MANUFACTURER=...  BRAND="HUGGIES"
 ```
 
-## How a Retail PM uses this *(General knowledge)*
+## Common analyses *(General knowledge)*
 1. **True promo incrementality** — `causal_data` tells you when a product was on display or in a mailer. Difference-in-differences vs non-displayed periods gives clean incremental lift, not just promo-week sales.
 2. **Coupon targeting effectiveness** — `campaign_table` × `coupon_redempt` → redemption rate by campaign type, by demographic.
 3. **Household CLV with demographics** — most public retail datasets have no demographics. Here you can build CLV stratified by income, kids-at-home, life stage.
